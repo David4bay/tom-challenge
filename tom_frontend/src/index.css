@@ -1,22 +1,95 @@
+:root {
+  --sm-space: 8px;
+  --md-space: 16px;
+  --lg-space: 24px;
+  --xl-space: 30px;
+
+  --preview-button-primary: #1e90ff;
+  --preview-text-primary: #ffffff;
+  --nav-background-primary: #292929;
+  --auth-border-primary: #1e8fff48;
+  --auth-text-primary: #ffffff;
+  --auth-button-primary: #1e90ff;
+}
+
 /*
-
-Reminder to integrate this for google font
-.inter-<uniquifier> {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}
-
-
-.noto-sans-<uniquifier> {
-  font-family: "Noto Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-}
-
-
+#1e90ff
+#1f8fff48
 */
+
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Noto Sans", sans-serif;
+}
+
+nav {
+  display: flex;
+  flex-direction: row; /* It's row by default but it's better to force it in case it's not. */
+  justify-content: space-between; /* Gives space between nav logo and auth/preview buttons */
+  list-style: none;
+  font-family: "Inter", sans-serif;
+  padding: var(--sm-space);
+}
+
+.nav__menu {
+  background-color: var(--nav-background-primary);
+}
+
+.nav__items:nth-of-type(2) { /* The user auth and preview buttons become side to side */
+  display: flex;
+  gap: var(--xl-space);
+  flex-direction: row;
+}
+
+li {
+  list-style: none; /* removes all list styles bullet points from all li elements */
+}
+
+li.button {
+  padding: var(--sm-space);
+  border-radius: 5px;
+  transition: box-shadow ease-in .2s;
+
+  &:hover {
+    cursor: pointer;
+  }
+  
+  
+}
+
+li.preview {
+  /* Played with a bit of box-shadow form here https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow */
+  border: 3px solid var(--auth-border-primary);
+  background-color: var(--auth-button-primary);
+  color: var(--auth-text-primary);
+  box-shadow: inset 0 -3em 3em rgb(0 200 0 / 30%),
+  0 0 0 2px var(--auth-border-primary),
+  0 0 0 transparent;
+  
+  &:hover {
+    box-shadow: none;
+    background-color: var(--preview-button-primary);
+    color: var(--preview-text-primary);
+  }
+}
+
+li.auth {
+  border: 3px solid var(--auth-border-primary);
+  background-color: var(--auth-button-primary);
+  color: var(--auth-text-primary);
+  box-shadow: inset 0 -3em 3em rgb(0 200 0 / 30%),
+  0 0 0 2px var(--auth-border-primary),
+  0 0 0 transparent;
+
+   &:hover {
+    box-shadow: none;
+    background-color: var(--preview-button-primary);
+    color: var(--preview-text-primary);
+  }
+}
