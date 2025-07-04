@@ -2,7 +2,8 @@
   --sm-space: 8px;
   --md-space: 16px;
   --lg-space: 24px;
-  --xl-space: 30px;
+  --xl-space: 32px;
+  --xxl-space: 40px;
 
   --preview-border-primary: #1e8fff48;
   --preview-button-primary: #1e90ff;
@@ -107,6 +108,19 @@ li.auth {
 }
 
 header {
-  margin: auto;
-  width: max-content;
+  margin: 100px auto 0 auto;
+  text-align: center;
+  text-wrap: wrap;
+}
+
+h1 {
+  font-size: calc(var(--xxl-space) + var(--sm-space));
+}
+
+@media (max-width: 600px) {
+
+  .auth__container {
+    display: none;
+  }
+  
 }
