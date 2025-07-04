@@ -2,13 +2,20 @@
 
 export default function Nav() {
     return (
-    <nav>
-        <ul>
-            <li>Logo</li>
+    <nav className="nav__menu">
+        <ul className="nav__items">
+            <li className="nav__logo">
+                <strong>TIG</strong>
+                <span>- The Interactive Gallery</span>
+            </li>
         </ul>
-        <ul>
-            <li>Preview</li>
-            <li>Signin/Signup</li>
+        <ul className="nav__items">
+            <li>
+                Preview
+            </li>
+            <li>
+                Signin/Signup
+            </li>
         </ul>
     </nav>
     )
