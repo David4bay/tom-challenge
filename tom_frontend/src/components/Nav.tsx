@@ -9,7 +9,7 @@ export default function Nav() {
                 <span className="logo__long"> - The Interactive Gallery</span>
             </li>
         </ul>
-        <ul className="nav__items">
+        <ul className="nav__items auth__container">
             <li className="preview button">
                 Preview
             </li>

@@ -14,10 +14,12 @@
   --logo-text-primary: #ffffff;
   --plain: #ffffff;
   --general-text-primary: #32323232;
+  --button-radius: 5px;
 }
 
 /*
-#1e90ff
+playing with these colors
+#1e90ff 
 #1f8fff48
 */
 
@@ -45,7 +47,7 @@ nav {
   background-color: var(--nav-background-primary);
 }
 
-.nav__items:nth-of-type(2) { /* The user auth and preview buttons become side to side */
+.auth__container { /* The user auth and preview buttons become side to side */
   display: flex;
   gap: var(--xl-space);
   flex-direction: row;
@@ -57,7 +59,7 @@ li {
 
 li.button {
   padding: var(--sm-space);
-  border-radius: 5px;
+  border-radius: var(--button-radius);
   transition: box-shadow ease-in .2s;
 
   &:hover {
@@ -102,4 +104,9 @@ li.auth {
 
 .logo__short, .logo__long {
   color: var(--logo-text-primary);
+}
+
+header {
+  margin: auto;
+  width: max-content;
 }
