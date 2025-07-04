@@ -108,9 +108,14 @@ li.auth {
 }
 
 header {
+  display: flex;
+  flex-direction: column;
   margin: 100px auto 0 auto;
   text-align: center;
-  text-wrap: wrap;
+}
+
+.header__links {
+  display: none;
 }
 
 h1 {
@@ -118,9 +123,21 @@ h1 {
 }
 
 @media (max-width: 600px) {
-
+  
   .auth__container {
     display: none;
   }
   
+  .header__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--xxl-space);
+  }
+
+  .header__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--md-space);
+  }
 }
