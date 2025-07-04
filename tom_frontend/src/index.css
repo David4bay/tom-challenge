@@ -4,12 +4,16 @@
   --lg-space: 24px;
   --xl-space: 30px;
 
+  --preview-border-primary: #1e8fff48;
   --preview-button-primary: #1e90ff;
   --preview-text-primary: #ffffff;
-  --nav-background-primary: #292929;
   --auth-border-primary: #1e8fff48;
-  --auth-text-primary: #ffffff;
   --auth-button-primary: #1e90ff;
+  --auth-text-primary: #ffffff;
+  --nav-background-primary: #292929;
+  --logo-text-primary: #ffffff;
+  --plain: #ffffff;
+  --general-text-primary: #32323232;
 }
 
 /*
@@ -58,9 +62,7 @@ li.button {
 
   &:hover {
     cursor: pointer;
-  }
-  
-  
+  } 
 }
 
 li.preview {
@@ -92,4 +94,12 @@ li.auth {
     background-color: var(--preview-button-primary);
     color: var(--preview-text-primary);
   }
+}
+
+.logo__container {
+  box-shadow: 0 0 1px 0 var(--plain);
+}
+
+.logo__short, .logo__long {
+  color: var(--logo-text-primary);
 }

@@ -3,7 +3,7 @@
 export default function Nav() {
     return (
     <nav className="nav__menu">
-        <ul className="nav__items">
+        <ul className="nav__items logo__container">
             <li className="nav__logo button">
                 <strong className="logo__short">TIG</strong>
                 <span className="logo__long"> - The Interactive Gallery</span>
