@@ -6,8 +6,10 @@ export default function Nav() {
     <nav className="nav__menu">
         <ul className="nav__items logo__container">
             <li className="nav__logo button">
+                <NavLink to="/">
                 <strong className="logo__short">TIG</strong>
                 <span className="logo__long"> - The Interactive Gallery</span>
+                </NavLink>
             </li>
         </ul>
         <ul className="nav__items auth__container">
