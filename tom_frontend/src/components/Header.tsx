@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import HeaderImage from "./HeaderImage"
-// import HeaderImage from "./loaders/HeaderImageLoader"
 
 interface HeaderImageProps {
     urls: {
@@ -45,7 +44,7 @@ export default function Header() {
                 <div className="header__images">
                     {headerPhotos.length > 0 ? headerPhotos.map((photo, key) => (
                         <React.Fragment key={key}>
-                            <HeaderImage urls={photo.urls} alt_description={photo.alt_description} />
+                            <HeaderImage urls={photo.urls} alt_description={photo.alt_description} styling="headerImage" />
                         </React.Fragment>
                     )) : null}
                 </div>

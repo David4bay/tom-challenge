@@ -5,11 +5,12 @@ interface HeaderImageProps {
         small?: string
         thumb?: string
     },
-    alt_description: string
+    alt_description?: string
+    styling?: string
 }
 
-export default function HeaderImage({ urls, alt_description }: HeaderImageProps) {
+export default function HeaderImage({ urls, alt_description, styling }: HeaderImageProps) {
     return (
-        <img src={urls.regular} alt={alt_description} className="header__image" />
+        <img src={urls.regular} alt={alt_description} className={`header__image ${styling}`} />
     )
 }

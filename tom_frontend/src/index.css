@@ -15,6 +15,9 @@
   --footer-background-primary: #292929;
   --logo-text-primary: #ffffff;
   --plain: #ffffff;
+  --scrollbar-background: #f1f1f1;
+  --scrollbar-thumb-primary: #888;
+  --scrollbar-thumb-hover: #555;
   --general-text-primary: #32323232;
   --button-radius: 5px;
 }
@@ -31,9 +34,26 @@ playing with these colors
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: calc(var(--sm-space) + 2px);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
 body {
   min-height: 100vh;
   font-family: "Noto Sans", sans-serif;
+  scroll-behavior: smooth;
 }
 
 nav {
@@ -125,6 +145,33 @@ header {
 
 .header__links {
   display: none;
+}
+
+img {
+  object-fit: cover;
+}
+
+.header__images {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 100%;
+  width: 65%;
+  margin: auto;
+}
+
+.header__image {
+  display: flex;
+  aspect-ratio: 16/9;
+  width: 200px;
+  height: 355px;
+  transition: transform ease 0.4s;
+  flex: 1;
+
+  &:hover {
+    flex: 3;
+    cursor: pointer;
+  }
 }
 
 h1 {
