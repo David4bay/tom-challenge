@@ -1,6 +1,20 @@
-
+import { useState, useEffect, Suspense } from "react"
+import axios from "axios"
 
 export default function Header() {
+
+    const [headerPhotos, setHeaderPhotos] = useState([])
+
+    const unsplashURL = import.meta.env.VITE_UNSPLASH_URL 
+    const unsplashAccessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY
+
+    useEffect(() => {
+        async function fetchHeaderPhotos() {
+            const response = await axios.get()
+        }
+    })
+
+
     return (
         <header>
             <div className="header__title">

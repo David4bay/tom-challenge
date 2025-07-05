@@ -12,6 +12,7 @@
   --auth-button-primary: #1e90ff;
   --auth-text-primary: #ffffff;
   --nav-background-primary: #292929;
+  --footer-background-primary: #292929;
   --logo-text-primary: #ffffff;
   --plain: #ffffff;
   --general-text-primary: #32323232;
@@ -130,10 +131,12 @@ h1 {
   font-size: calc(var(--xxl-space) + var(--sm-space));
 }
 
-
 footer {
   display: flex;
   padding: var(--xxl-space);
+  justify-content: center;
+  background-color: var(--nav-background-primary);
+  color: var(--plain);
 }
 
 @media (max-width: 600px) {
