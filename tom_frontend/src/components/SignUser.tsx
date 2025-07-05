@@ -56,7 +56,7 @@ export default function SignUser() {
                         </legend>
                             <fieldset className="form__field">
                                 <label htmlFor="username">Username</label>
-                                <input type="text" id="username" className="form__input username" />   
+                                <input type="text" id="username" className="form__input" />   
                             </fieldset>
                             <fieldset className="form__field">
                                 <label htmlFor="email">Email</label>
@@ -74,7 +74,7 @@ export default function SignUser() {
                                 <button className="auth__button" type="button" onClick={() => setSignUp(!signup)}>Sign up</button>
                             <div>
                                 <p>Have an account? </p>
-                                <button className="form__button" onClick={() => setSignUp(!signup)}>Login </button>
+                                <button className="form__button" onClick={() => setSignUp(!signup)}>Login</button>
                             </div>
                 </form>
                 ) : (
@@ -99,7 +99,7 @@ export default function SignUser() {
                             <button className="auth__button" type="button" onClick={() => setSignUp(!signup)}>Sign in</button>
                         </fieldset>
                         <div>
-                    <p>Not registered? </p> <button className="" onClick={() => setSignUp(!signup)}>Register</button>
+                    <p>Not registered? </p> <button className="form__button" onClick={() => setSignUp(!signup)}>Register</button>
                         </div>
                 </form>
                 )

@@ -189,7 +189,6 @@ form {
   transition: all ease 0.5;
   box-shadow: 0 0 2px 0 var(--form-border);
   background-color: var(--form-background);
-  
   color: var(--plain);
 }
 
@@ -216,13 +215,26 @@ fieldset {
   padding: calc(var(--sm-space) - 4px);
   border: none;
   margin-top: var(--sm-space);
+  border-radius: calc(var(--sm-space) - 3px);
 }
 
 .form__button {
   border: 1px solid var(--sign-button-border);
+  border-radius: calc(var(--sm-space) - 3px);
   background-color: var(--sign-button-primary);
   align-self: flex-start;
-  padding: var(--md-space);
+  padding: var(--sm-space);
+  margin-top: var(--sm-space);
+}
+
+.auth__button {
+  border: 1px solid var(--sign-button-border);
+  border-radius: calc(var(--sm-space) - 3px);
+  background-color: var(--sign-button-primary);
+  align-self: flex-start;
+  padding: var(--sm-space);
+  /* to center the form login/signup button */
+  margin: auto;
 }
 
 .password__container {
@@ -232,12 +244,23 @@ fieldset {
   padding-left: 23px;
   justify-content: center;
   flex-direction: row;
+  /* fixing the password reveal icon to the element carrying this class */
+  position: relative;
+  
 }
 
 .reveal__button {
   display: flex;
   align-self: flex-start;
   margin-top: var(--sm-space);
+  /* transform: translateX(-23px); */
+  border-top-right-radius: calc(var(--sm-space) - 3px);
+  border-bottom-right-radius: calc(var(--sm-space) - 3px);
+  /* z-index: 9999; */
+  /* ties the reveal icon to the password container */
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 footer {
