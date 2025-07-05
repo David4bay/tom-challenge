@@ -1,29 +1,38 @@
-import { useState, Suspense, use, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import axios from "axios"
-import HeaderImage from "./loaders/HeaderImageLoader"
+import HeaderImage from "./HeaderImage"
+// import HeaderImage from "./loaders/HeaderImageLoader"
 
-type HeaderPhoto = any
+interface HeaderImageProps {
+    urls: {
+        raw?: string
+        regular?: string
+        small?: string
+        thumb?: string
+    },
+    alt_description: string
+}
 
 export default function Header() {
 
-    const [headerPhotos, setHeaderPhotos] = useState<unknown[]>([])
+    const [headerPhotos, setHeaderPhotos] = useState<HeaderImageProps[]>([])
 
     const unsplashURL = import.meta.env.VITE_UNSPLASH_URL 
     const unsplashAccessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY
 
-    useEffect(() => { 
+    useEffect(() => {
         async function fetchHeaderPhotos() {
-            const response = await axios.get(`https://picsum.photos/seed/nature1/400/300`)
+            const response = await axios.get(`https://${unsplashURL}=${unsplashAccessKey}`)
             const data = await response.data
             return data
         }
         if (headerPhotos.length < 1) {
-            const photo = fetchHeaderPhotos() as HeaderPhoto
-            console.log(headerPhotos)
-            setHeaderPhotos([photo])
+            fetchHeaderPhotos().then((photo) => {
+                console.log("photo", photo)
+                setHeaderPhotos(photo)
+        })
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [headerPhotos, unsplashAccessKey, unsplashURL])
 
     return (
         <header>
@@ -34,9 +43,11 @@ export default function Header() {
             </div>
             <div className="header__content">
                 <div className="header__images">
-                    {headerPhotos.map((headerPhoto, key) => (
-                        <img src={headerPhoto as string | undefined} alt={"..."} key={key} />
-                    ))}
+                    {headerPhotos.length > 0 ? headerPhotos.map((photo, key) => (
+                        <React.Fragment key={key}>
+                            <HeaderImage urls={photo.urls} alt_description={photo.alt_description} />
+                        </React.Fragment>
+                    )) : null}
                 </div>
                 <div className="header__text">
                     <h2>
