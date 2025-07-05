@@ -1,19 +1,29 @@
-import { useState, useEffect, Suspense } from "react"
+import { useState, Suspense, use, useEffect } from "react"
 import axios from "axios"
+import HeaderImage from "./loaders/HeaderImageLoader"
+
+type HeaderPhoto = any
 
 export default function Header() {
 
-    const [headerPhotos, setHeaderPhotos] = useState([])
+    const [headerPhotos, setHeaderPhotos] = useState<unknown[]>([])
 
     const unsplashURL = import.meta.env.VITE_UNSPLASH_URL 
     const unsplashAccessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY
 
-    useEffect(() => {
+    useEffect(() => { 
         async function fetchHeaderPhotos() {
-            const response = await axios.get()
+            const response = await axios.get(`https://picsum.photos/seed/nature1/400/300`)
+            const data = await response.data
+            return data
         }
-    })
-
+        if (headerPhotos.length < 1) {
+            const photo = fetchHeaderPhotos() as HeaderPhoto
+            console.log(headerPhotos)
+            setHeaderPhotos([photo])
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <header>
@@ -24,9 +34,9 @@ export default function Header() {
             </div>
             <div className="header__content">
                 <div className="header__images">
-                    <img src="#" alt="header image" className="header__image" />
-                    <img src="#" alt="header image" className="header__image" />
-                    <img src="#" alt="header image" className="header__image" />
+                    {headerPhotos.map((headerPhoto, key) => (
+                        <img src={headerPhoto as string | undefined} alt={"..."} key={key} />
+                    ))}
                 </div>
                 <div className="header__text">
                     <h2>
