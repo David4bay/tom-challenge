@@ -5,11 +5,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App.tsx'
 import Preview from './components/Preview.tsx'
 import SignUser from './components/SignUser.tsx'
-import { UserContext } from './components/AuthProvider/AuthProvider.tsx'
+import AuthProvider from './components/AuthProvider/AuthProvider.tsx'
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <UserContext value='davidbay'>
+    <AuthProvider>
     <BrowserRouter>
     <Routes>
       <Route path="/" index element={<App />} />
@@ -17,6 +18,6 @@ createRoot(document.getElementById('root')!).render(
       <Route path="/signuser" element={<SignUser />} />
     </Routes>
     </BrowserRouter>
-    </UserContext>
+    </AuthProvider>
   </StrictMode>,
 )

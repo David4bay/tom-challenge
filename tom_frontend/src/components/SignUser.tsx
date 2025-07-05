@@ -2,8 +2,9 @@
 import Nav from "./Nav";
 import EyeIcon from "./SVG/EyeIcon";
 import EyeHideIcon from "./SVG/EyeHideIcon";
-import { useContext, useEffect, useState } from "react"
-import { UserContext } from "./AuthProvider/AuthProvider";
+import { useEffect, useState } from "react"
+import { useAuth } from "./AuthProvider/AuthProvider";
+import Footer from "./Footer";
 
 export default function SignUser() {
 
@@ -38,7 +39,8 @@ export default function SignUser() {
     //     return data
     // }
 
-    const user = useContext(UserContext)
+    const { user } = useAuth()
+    
 
     console.log("user", user)
 
@@ -49,19 +51,21 @@ export default function SignUser() {
             {
                 signup ? (
                      <form>
-                        <legend>Sign up</legend>
+                        <legend>
+                        <h3>Sign up</h3>
+                        </legend>
                             <fieldset className="form__field">
                                 <label htmlFor="username">Username</label>
-                                <input type="text" className="form__input" />   
+                                <input type="text" id="username" className="form__input username" />   
                             </fieldset>
                             <fieldset className="form__field">
                                 <label htmlFor="email">Email</label>
-                                <input type="email" className="form__input" />
+                                <input type="email" id="email" className="form__input" />
                             </fieldset>
                             <fieldset className="form__field">
                                 <label htmlFor="password">Password</label>
                             <div className="password__container">
-                                <input type={!showPassword ? "password" : "text"} className="form__input" />
+                                <input type={!showPassword ? "password" : "text"} id="password" className="form__input" />
                                 <button className="reveal__button" type="button" >
                                     {showPassword ? <EyeIcon /> : <EyeHideIcon />}
                                 </button>
@@ -75,15 +79,17 @@ export default function SignUser() {
                 </form>
                 ) : (
                 <form>
-                    <legend>Sign in</legend>
+                    <legend>
+                        <h3>Sign in</h3>
+                    </legend>
                         <fieldset className="form__field">
                             <label htmlFor="username">Username</label>
-                            <input type="text" className="form__input" />
+                            <input type="text" id="username" className="form__input" />
                         </fieldset>
                         <fieldset className="form__field">
                             <label htmlFor="password">Password</label>
                         <div className="password__container">
-                            <input type={!showPassword ? "password" : "text"} className="form__input" />
+                            <input type={!showPassword ? "password" : "text"} id="password" className="form__input" />
                             <button className="reveal__button" type="button" onClick={() => setShowPassword(!showPassword)}>
                                 {showPassword ? <EyeIcon /> : <EyeHideIcon />}
                             </button>
@@ -99,6 +105,7 @@ export default function SignUser() {
                 )
             }
         </section>
+        <Footer />
         </>
     )
 }

@@ -22,6 +22,8 @@
   --button-radius: 5px;
   --sign-button-primary: #f1f1f1;
   --sign-button-border: #333333;
+  --form-border: #999999;
+  --form-background: #333333;
 }
 
 /*
@@ -85,7 +87,7 @@ li {
 li.button {
   padding: var(--sm-space);
   border-radius: var(--button-radius);
-  transition: box-shadow ease-in .2s;
+  transition: box-shadow ease-in 0.2s;
 
   &:hover {
     cursor: pointer;
@@ -184,6 +186,11 @@ form {
   text-align: center;
   padding: 100px;
   border-radius: var(--md-space);
+  transition: all ease 0.5;
+  box-shadow: 0 0 2px 0 var(--form-border);
+  background-color: var(--form-background);
+  
+  color: var(--plain);
 }
 
 fieldset {
@@ -205,9 +212,10 @@ fieldset {
   flex-direction: column;
 }
 
-.form__input {
+.form__input, .username {
   padding: calc(var(--sm-space) - 4px);
-
+  border: none;
+  margin-top: var(--sm-space);
 }
 
 .form__button {
@@ -229,6 +237,7 @@ fieldset {
 .reveal__button {
   display: flex;
   align-self: flex-start;
+  margin-top: var(--sm-space);
 }
 
 footer {
