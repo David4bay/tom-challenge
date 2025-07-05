@@ -20,6 +20,8 @@
   --scrollbar-thumb-hover: #555;
   --general-text-primary: #32323232;
   --button-radius: 5px;
+  --sign-button-primary: #f1f1f1;
+  --sign-button-border: #333333;
 }
 
 /*
@@ -64,7 +66,6 @@ nav {
   font-family: "Inter", sans-serif;
   padding: var(--sm-space);
   height: auto;
-  flex: auto;
 }
 
 .nav__menu {
@@ -147,37 +148,18 @@ header {
   display: none;
 }
 
-img {
-  object-fit: cover;
+/*Placed this a bit higher since it's the parent of headerImage__wrapper so I don't get confused */
+.header__images {
+  
 }
 
 .headerImage__wrapper {
-  position: relative;
+
 }
 
-.header__images {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  max-width: 100%;
-  width: 65%;
-  margin: auto;
-}
 
 .header__image {
-  display: flex;
-  aspect-ratio: 16/9;
-  width: 200px;
-  height: 355px;
-  transition: transform ease 0.4s;
-  position: relative;
-  z-index: -1;
-  flex: 1;
 
-  &:hover {
-    flex: 3;
-    cursor: pointer;
-  }
 }
 
 .image__icon {
@@ -195,11 +177,17 @@ h1 {
 form {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100vh;
+  gap: var(--sm-space);
   align-items: flex-start;
   justify-content: center;
   place-items: center;
+  text-align: center;
+  padding: 100px;
+  border-radius: var(--md-space);
+}
+
+fieldset {
+  border: none;
 }
 
 .form__container {
@@ -209,6 +197,38 @@ form {
   height: 100vh;
   justify-content: center;
   align-items: center;
+}
+
+.form__field {
+  display: flex;
+  border: none;
+  flex-direction: column;
+}
+
+.form__input {
+  padding: calc(var(--sm-space) - 4px);
+
+}
+
+.form__button {
+  border: 1px solid var(--sign-button-border);
+  background-color: var(--sign-button-primary);
+  align-self: flex-start;
+  padding: var(--md-space);
+}
+
+.password__container {
+  display: flex;
+  width: 100%;
+  /* Since SVG eye icon is 23px, i pushed the password container left by the same amount :) */
+  padding-left: 23px;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.reveal__button {
+  display: flex;
+  align-self: flex-start;
 }
 
 footer {
