@@ -42,6 +42,8 @@ nav {
   list-style: none;
   font-family: "Inter", sans-serif;
   padding: var(--sm-space);
+  height: auto;
+  flex: auto;
 }
 
 .nav__menu {
@@ -117,6 +119,7 @@ header {
   flex-direction: column;
   margin: 100px auto 0 auto;
   text-align: center;
+  min-height: calc(100vh - 156px); /* subtracted height + nav to push footer to bottom */
 }
 
 .header__links {
@@ -125,6 +128,12 @@ header {
 
 h1 {
   font-size: calc(var(--xxl-space) + var(--sm-space));
+}
+
+
+footer {
+  display: flex;
+  padding: var(--xxl-space);
 }
 
 @media (max-width: 600px) {
