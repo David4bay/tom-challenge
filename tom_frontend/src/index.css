@@ -246,7 +246,8 @@ fieldset {
   flex-direction: row;
   /* fixing the password reveal icon to the element carrying this class */
   position: relative;
-  
+  /* hiding the password reveal icon from overflowing this container */
+  overflow: hidden;
 }
 
 .reveal__button {
