@@ -184,7 +184,9 @@ form {
   justify-content: center;
   place-items: center;
   text-align: center;
-  padding: 100px;
+  width: min(400px, 90vw);
+  min-width: 200px;
+  height: 400px;
   border-radius: var(--md-space);
   transition: all ease 0.5;
   box-shadow: 0 0 2px 0 var(--form-border);
@@ -211,7 +213,7 @@ fieldset {
   flex-direction: column;
 }
 
-.form__input, .username {
+.form__input {
   padding: calc(var(--sm-space) - 4px);
   border: none;
   margin-top: var(--sm-space);
@@ -240,8 +242,10 @@ fieldset {
 .password__container {
   display: flex;
   width: 100%;
-  /* Since SVG eye icon is 23px, i pushed the password container left by the same amount :) */
-  padding-left: 23px;
+  /* 
+  REMOVED - Since icon is now nested in password container, no need for the padding
+  Since SVG eye icon is 23px, i pushed the password container left by the same amount :) 
+  */
   justify-content: center;
   flex-direction: row;
   /* fixing the password reveal icon to the element carrying this class */
@@ -270,6 +274,7 @@ footer {
   justify-content: center;
   background-color: var(--nav-background-primary);
   color: var(--plain);
+  text-align: center;
 }
 
 @media (max-width: 600px) {
