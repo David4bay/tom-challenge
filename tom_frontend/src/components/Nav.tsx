@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 
 
 export default function Nav() {
@@ -11,10 +12,14 @@ export default function Nav() {
         </ul>
         <ul className="nav__items auth__container">
             <li className="preview button">
-                Preview
+                <NavLink to="/preview">
+                    Preview
+                </NavLink>  
             </li>
             <li className="auth button">
-                Signin/Signup
+                <NavLink to="/signuser">
+                    Signin/Signup
+                </NavLink>
             </li>
         </ul>
     </nav>

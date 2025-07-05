@@ -107,6 +107,11 @@ li.auth {
   color: var(--logo-text-primary);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -139,5 +144,21 @@ h1 {
     justify-content: center;
     align-items: center;
     gap: var(--md-space);
+  }
+}
+
+@media (max-width: 270px) {
+
+  h1 {
+    font-size: var(--xxl-space);
+  }
+
+  .logo__long {
+    display: none;
+  }
+
+  .header__links {
+    display: flex;
+    flex-direction: column;
   }
 }
