@@ -1,3 +1,4 @@
+
 import Footer from "./Footer";
 import List from "./List";
 import Nav from "./Nav";
@@ -11,6 +12,7 @@ export default function Preview() {
     <>
     <Nav />
     <List />
+    <Footer />
     </>
     )
 }
