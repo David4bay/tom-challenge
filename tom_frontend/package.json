@@ -40,6 +40,7 @@
     "jest": "^30.0.4",
     "jest-environment-jsdom": "^30.0.4",
     "jest-transform-stub": "^2.0.0",
+    "json-server": "^1.0.0-beta.3",
     "ts-jest": "^29.4.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.1",
