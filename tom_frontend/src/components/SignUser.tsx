@@ -66,7 +66,7 @@ export default function SignUser() {
                                 <label htmlFor="password">Password</label>
                             <div className="password__container">
                                 <input type={!showPassword ? "password" : "text"} id="password" className="form__input" />
-                                <button className="reveal__button" type="button" >
+                                <button className="reveal__button" type="button" onClick={() => setShowPassword(!showPassword)}>
                                     {showPassword ? <EyeIcon /> : <EyeHideIcon />}
                                 </button>
                             </div>

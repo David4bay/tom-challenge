@@ -7,15 +7,14 @@ import Preview from './components/Preview.tsx'
 import SignUser from './components/SignUser.tsx'
 import AuthProvider from './components/AuthProvider/AuthProvider.tsx'
 
-
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <AuthProvider>
     <BrowserRouter>
     <Routes>
       <Route path="/" index element={<App />} />
-      <Route path="/preview" element={<Preview />} />
       <Route path="/signuser" element={<SignUser />} />
+      <Route path="/preview/*" element={<Preview />} />
     </Routes>
     </BrowserRouter>
     </AuthProvider>

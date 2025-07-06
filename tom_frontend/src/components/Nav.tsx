@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
-
 export default function Nav() {
+
     return (
     <nav className="nav__menu">
         <ul className="nav__items logo__container">
