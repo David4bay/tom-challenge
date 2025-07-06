@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import HeaderImage from "./HeaderImage"
+import { NavLink } from "react-router-dom"
 
 interface HeaderImageProps {
     urls: {
@@ -59,10 +60,10 @@ export default function Header() {
                 <div>
                      <ul className="header__links">
                         <li className="preview button">
-                            Preview
+                            <NavLink to="/preview">Preview</NavLink>
                         </li>
                         <li className="auth button">
-                            Signin/Signup
+                            <NavLink to="/signuser">Signin/Signup</NavLink>
                         </li>
                     </ul>
                 </div>

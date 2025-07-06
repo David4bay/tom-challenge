@@ -50,7 +50,7 @@ export default function SignUser() {
         <section className="form__container">
             {
                 signup ? (
-                     <form>
+                     <form className="signup__form">
                         <legend>
                         <h3>Sign up</h3>
                         </legend>
@@ -78,7 +78,7 @@ export default function SignUser() {
                             </div>
                 </form>
                 ) : (
-                <form>
+                <form className="signin__form">
                     <legend>
                         <h3>Sign in</h3>
                     </legend>

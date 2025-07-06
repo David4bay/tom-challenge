@@ -140,28 +140,44 @@ a {
 
 header {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  margin: 100px auto 0 auto;
+  margin: 50px auto 0 auto;
   text-align: center;
   min-height: calc(100vh - 156px); /* subtracted height + nav to push footer to bottom */
 }
 
 .header__links {
   display: none;
+  margin-bottom: 50px;
 }
 
 /*Placed this a bit higher since it's the parent of headerImage__wrapper so I don't get confused */
 .header__images {
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 400px;
+  align-items: stretch;
+  gap: var(--md-space);
+  width: 100vw;
+  height: 100vh;
+  overflow-x: auto;
+  position: relative;
 }
-
-.headerImage__wrapper {
-
-}
-
 
 .header__image {
+  flex: 1;
+  flex-basis: 200px;
+  transition: flex-basis 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
 
+.header__image:hover {
+  flex-basis: 400px;
+  cursor: pointer;
 }
 
 .image__icon {
@@ -192,6 +208,15 @@ form {
   box-shadow: 0 0 2px 0 var(--form-border);
   background-color: var(--form-background);
   color: var(--plain);
+}
+
+.signin__form {
+  font-weight: 700;
+}
+
+.signup__form {
+  padding: 100px 0;
+  font-weight: 700;
 }
 
 fieldset {
@@ -227,6 +252,7 @@ fieldset {
   align-self: flex-start;
   padding: var(--sm-space);
   margin-top: var(--sm-space);
+  border: none;
 }
 
 .auth__button {
