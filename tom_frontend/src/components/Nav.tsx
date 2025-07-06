@@ -5,19 +5,19 @@ export default function Nav() {
     return (
     <nav className="nav__menu">
         <ul className="nav__items logo__container">
-            <li className="nav__logo button">
                 <NavLink to="/">
+            <li className="nav__logo button">
                 <strong className="logo__short">TIG</strong>
                 <span className="logo__long"> - The Interactive Gallery</span>
-                </NavLink>
             </li>
+                </NavLink>
         </ul>
         <ul className="nav__items auth__container">
-            <li className="preview button">
                 <NavLink to="/preview">
-                    Preview
-                </NavLink>  
+            <li className="preview button">
+                Preview
             </li>
+                </NavLink>  
             <li className="auth button">
                 <NavLink to="/signuser">
                     Signin/Signup

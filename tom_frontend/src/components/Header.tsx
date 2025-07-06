@@ -57,7 +57,7 @@ export default function Header() {
                         The Interactive Gallery collates images from Unsplash API.
                     </p>
                 </div>
-                <div>
+                <div className="header__bottom">
                      <ul className="header__links">
                         <li className="preview button">
                             <NavLink to="/preview">Preview</NavLink>

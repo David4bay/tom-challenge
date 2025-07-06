@@ -150,6 +150,9 @@ header {
 
 .header__links {
   display: none;
+}
+
+.header__bottom {
   margin-bottom: 50px;
 }
 
