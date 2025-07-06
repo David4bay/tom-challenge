@@ -20,6 +20,8 @@ export default function List() {
     const unsplashUrl = `https://api.unsplash.com/search/photos?client_id=${CLIENT_ID}&query=${query}&page=${page}`
 
     function fetchImages() {
+        // prevent unnecessary requests when no query and page scrolledf
+        if (query.length < 1) return
         // api docs insist including the headers even if unused
         axios.get(unsplashUrl, {
             headers: {}
@@ -80,6 +82,7 @@ export default function List() {
                 </button>
 
             </article>
+            <article className="infiniteScroll__wrapper">
             <InfiniteScroll
                 dataLength={photos.length}
                 next={fetchImages} 
@@ -101,6 +104,7 @@ export default function List() {
                         ))}
                     </div>
             </InfiniteScroll>
+            </article>
         </section>
     )
 }
