@@ -23,12 +23,22 @@ export default function List() {
         axios.get(unsplashUrl, {
             headers: {}
         }).then((photo) => {
-            setPhotos<any>([...photos, ...photo.data.results])
+            setPhotos<any[]>([...photos, ...photo.data.results])
         }).catch((error) => {
             console.log(error)
         })
         setPage(page + 1)
     }
+
+    function triggerSearch() {
+        if (query.length < 1) {
+            setPhotos([])
+            return
+        }
+        fetchImages()
+    }
+
+
 // intellisense inferred type
     function searchImages(e: any) {
         // there won't be need for preventDefault if i set button/input type to button 
@@ -57,27 +67,45 @@ export default function List() {
                 <input 
                 type="text"
                 onKeyDown={(e) => searchImages(e)} 
+                onChange={(e) => setQuery(e.target.value)}
+                className="searchForm__input"
                 />
+                <button
+                className="searchButton"
+                type="button"
+                id="enterKey"
+                onClick={triggerSearch}
+                >
+                    Search
+                </button>
+
             </article>
             <InfiniteScroll
                 dataLength={photos.length}
                 next={fetchImages} 
                 hasMore={hasMore} 
-                loader={<p>Load more...</p>}
+                loader={<p className="infinite__loader"></p>}
                 endMessage={
                     <p>
                         End...
                     </p>
                 }
                 >
-                    <div>
-                        {photos.map((singlePhoto, key) => (
-                            <div key={key}>
+                    <div className="infinite__wrapper">
+                        {photos.map((singlePhoto: any, key) => (
+                            <div key={key}
+                            className="infiniteImage__container"
+                            >
                                 <img 
                                 src={singlePhoto.urls.small} 
                                 alt={singlePhoto.alt_description} 
+                                className="infiniteImage"
+                                style={{width: "100%", height: "100%", objectFit: "cover"}}
                                 />
-                                <h4>Photo by {singlePhoto.user.name}</h4>
+                                <div className="infiniteImage__author">
+
+                                    <h4>Photo by {singlePhoto.user.name}</h4>
+                                </div>
                             </div>
                         ))}
                     </div>
