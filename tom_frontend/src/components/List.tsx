@@ -3,8 +3,9 @@
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from "axios"
-import { useEffect, useState, type KeyboardEvent } from "react"
+import React, { useEffect, useState } from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
+import InfiniteComponent from "./InfiniteComponent"
 
 
 export default function List() {
@@ -23,7 +24,7 @@ export default function List() {
         axios.get(unsplashUrl, {
             headers: {}
         }).then((photo) => {
-            setPhotos<any[]>([...photos, ...photo.data.results])
+            setPhotos((): any[] => [...photos, ...photo.data.results])
         }).catch((error) => {
             console.log(error)
         })
@@ -37,7 +38,6 @@ export default function List() {
         }
         fetchImages()
     }
-
 
 // intellisense inferred type
     function searchImages(e: any) {
@@ -93,20 +93,11 @@ export default function List() {
                 >
                     <div className="infinite__wrapper">
                         {photos.map((singlePhoto: any, key) => (
-                            <div key={key}
-                            className="infiniteImage__container"
-                            >
-                                <img 
-                                src={singlePhoto.urls.small} 
-                                alt={singlePhoto.alt_description} 
-                                className="infiniteImage"
-                                style={{width: "100%", height: "100%", objectFit: "cover"}}
-                                />
-                                <div className="infiniteImage__author">
-
-                                    <h4>Photo by {singlePhoto.user.name}</h4>
-                                </div>
-                            </div>
+                          <React.Fragment key={key}>
+                            <InfiniteComponent
+                            singlePhoto={singlePhoto}
+                            />
+                          </React.Fragment>
                         ))}
                     </div>
             </InfiniteScroll>
