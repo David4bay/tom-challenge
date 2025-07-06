@@ -58,6 +58,7 @@ body {
   min-height: 100vh;
   font-family: "Noto Sans", sans-serif;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 nav {
@@ -183,12 +184,16 @@ header {
   cursor: pointer;
 }
 
-.image__icon {
-  width: calc(var(--lg-space) + 18px);
+.headerImage__data {
   position: absolute;
-  z-index: 9999;
-  right: 10px;
-  bottom: 10px;
+  left: 0;
+  bottom: var(--md-space);
+}
+
+.headerImage__title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
 
 h1 {

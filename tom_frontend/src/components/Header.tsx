@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom"
 
 interface HeaderImageProps {
     urls: {
-        raw?: string
+        raw: string
         regular?: string
         small?: string
         thumb?: string

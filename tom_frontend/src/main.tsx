@@ -6,6 +6,7 @@ import App from './App.tsx'
 import Preview from './components/Preview.tsx'
 import SignUser from './components/SignUser.tsx'
 import AuthProvider from './components/AuthProvider/AuthProvider.tsx'
+import Gallery from './components/Gallery.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path="/" index element={<App />} />
       <Route path="/signuser" element={<SignUser />} />
       <Route path="/preview/*" element={<Preview />} />
+      <Route path="/gallery/*" element={<Gallery />} />
     </Routes>
     </BrowserRouter>
     </AuthProvider>

@@ -1,7 +1,10 @@
 
 import { NavLink } from "react-router-dom";
+import { useAuth } from "./AuthProvider/AuthProvider";
 
 export default function Nav() {
+
+    const auth = useAuth()
 
     return (
     <nav className="nav__menu">
@@ -14,9 +17,9 @@ export default function Nav() {
                 </NavLink>
         </ul>
         <ul className="nav__items auth__container">
-                <NavLink to="/preview">
+                <NavLink to={auth.user ? "/gallery" : "/preview"}>
             <li className="preview button">
-                Preview
+                {auth.user ? "Gallery" : "Preview"}
             </li>
                 </NavLink>  
             <li className="auth button">

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
 
 interface AuthProviderProp {
@@ -21,11 +22,11 @@ export default function AuthProvider({ children }: AuthProviderProp) {
     const [user, setUser] = useState<User | null>(null)
 
     useEffect(() => {
-        const storedUser = localStorage.getItem("user")
+        const storedUser: any = localStorage.getItem("user")
 
         if (storedUser) {
             try {
-                const parsedUser = JSON.parse(storedUser) as User
+                const parsedUser = JSON.parse(storedUser)
                 setUser(parsedUser)
             } catch(error: unknown) {
                 console.error("Error getting user from localStorage:", error)

@@ -1,28 +1,30 @@
-
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthProvider/AuthProvider";
-import Footer from "./Footer";
-import List from "./List";
 import Nav from "./Nav";
+import List from "./List";
+import Footer from "./Footer";
 import { useEffect } from "react";
 
-export default function Preview() {
+
+export default function Gallery() {
 
     const auth = useAuth()
+    
+    console.log("user", auth)
 
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (auth.user) {
-            navigate("/gallery")
+        if (!auth.user) {
+            navigate("/preview")
         }
     }, [navigate, auth.user])
 
     return (
-    <>
-    <Nav />
-    <List />
-    <Footer />
-    </>
+        <>
+        <Nav />
+        <List />
+        <Footer />
+        </>
     )
 }

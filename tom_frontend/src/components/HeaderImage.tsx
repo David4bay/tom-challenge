@@ -11,7 +11,11 @@ interface HeaderImageProps {
     styling?: string
 }
 
-export default function HeaderImage({ urls, alt_description, styling }: HeaderImageProps) {
+export default function HeaderImage({ 
+    urls, 
+    alt_description, 
+    styling
+}: HeaderImageProps) {
 
     return (
         <>
@@ -21,6 +25,7 @@ export default function HeaderImage({ urls, alt_description, styling }: HeaderIm
         className={`header__image ${styling}`} 
         style={{ width: "100%", height: "100%", objectFit: "cover"}}
         />
+
         </>
     )
 }
