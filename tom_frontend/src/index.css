@@ -322,11 +322,6 @@ footer {
   text-align: center;
 }
 
-.infiniteScroll__wrapper {
-  height: max-content;
-  overflow-y: hidden;
-}
-
 .infinite__loader {
   position: relative;
   display: flex;
@@ -461,27 +456,95 @@ footer {
   position: fixed;
   top: 0;
   left: 0;
+  overflow: hidden;
 }
 
 .activeCard__content {
+  /* LOL - 
+  flex to align content
+  justify&alien self to position it center
+  flex to match image width behind
+  max-width so it can shrink below that
+  z index to be above overlay
+  the top, bottom, etc are to move it while at fixed position
+  */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  justify-self: center;
+  align-self: center;
   flex: 25%;
-  max-width: 25%;
+  max-width: 30%;
   z-index: 3;
   position: fixed;
-  transform: translate(55%, -50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: var(--plain);
+  border-radius: var(--sm-space);
+  height: 100%;
 }
 
 .activeCardImage__container {
-  height: 25%;
+  height: 300px;
+}
+
+.activeCardImage__author {
+  width: 100%;
+  height: 100%;
+}
+
+.activeCardAuthor__thumbnail {
+  border-radius: 50%;
+  width: calc(var(--lg-space) - 8);
+}
+
+.authorHeadshot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sm-space);
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: calc(var(--sm-space) + 2px);
+  font-weight: 500;
+}
+
+.authorBio, .authorDescription, .authorTag {
+  display: flex;
+  flex-direction: column;
+  margin: calc(var(--sm-space) + 2px);
+}
+
+.authorBio__title, .authorDescription__title, .authorTag__title {
+  font-family: "Inter", sans-serif, Arial, Helvetica;
+  font-size: var(--md-space);
+  font-weight: 700;
+}
+
+.comment__button {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.activeCard__interactions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--sm-space);
 }
 
 @media (max-width: 1000px) {
   .infiniteImage__container {
     flex: 50%;
+    max-width: 50%;
+  }
+
+  .activeCard__content {
+    flex: 50%;
+    width: 50%;
     max-width: 50%;
   }
 }
@@ -513,6 +576,32 @@ footer {
   .searchForm__input {
     width: 90%;
     min-width: 100px;
+  }
+}
+
+.like__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--sm-space) - 5px);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.like__counter {
+  font-family: "Inter", sans-serif, Arial, Helvetica;
+  font-size: var(--md-space);
+  font-weight: 500;
+}
+
+@media (max-width: 500px) {
+  .activeCard__content {
+    flex: 60%;
+    width: 60%;
+    max-width: 60%;
   }
 }
 

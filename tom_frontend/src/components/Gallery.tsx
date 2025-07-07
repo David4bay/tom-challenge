@@ -4,6 +4,7 @@ import Nav from "./Nav";
 import List from "./List";
 import Footer from "./Footer";
 import { useEffect } from "react";
+import UserCard from "./Card/UserCard";
 
 
 export default function Gallery() {
@@ -23,6 +24,7 @@ export default function Gallery() {
     return (
         <>
         <Nav />
+        <UserCard />
         <List />
         <Footer />
         </>

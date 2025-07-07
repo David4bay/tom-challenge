@@ -17,6 +17,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path="/signuser" element={<SignUser />} />
       <Route path="/preview/*" element={<Preview />} />
       <Route path="/gallery/*" element={<Gallery />} />
+      <Route path="*" element={<App />} />
     </Routes>
     </BrowserRouter>
     </AuthProvider>

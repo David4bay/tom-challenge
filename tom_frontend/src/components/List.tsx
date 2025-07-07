@@ -7,7 +7,6 @@ import React, { useEffect, useState } from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
 import InfiniteComponent from "./InfiniteComponent"
 
-
 export default function List() {
 
     const [photos, setPhotos] = useState([])
@@ -25,8 +24,9 @@ export default function List() {
         // api docs insist including the headers even if unused
         axios.get(unsplashUrl, {
             headers: {}
-        }).then((photo) => {
-            setPhotos((): any[] => [...photos, ...photo.data.results])
+        }).then((photo: unknown) => {
+            setPhotos((arg: any): any[] | any => [...arg, ...photo.data.results])
+            return
         }).catch((error) => {
             console.log(error)
         })
@@ -82,7 +82,6 @@ export default function List() {
                 </button>
 
             </article>
-            <article className="infiniteScroll__wrapper">
             <InfiniteScroll
                 dataLength={photos.length}
                 next={fetchImages} 
@@ -104,7 +103,6 @@ export default function List() {
                         ))}
                     </div>
             </InfiniteScroll>
-            </article>
         </section>
     )
 }

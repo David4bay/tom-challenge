@@ -1,23 +1,24 @@
- 
+ /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react"
 import ActiveCard from "./Card/ActiveCard"
 import { Link, useLocation } from "react-router-dom"
 
+export default function InfiniteComponent({ singlePhoto }: any) {
 
-export default function InfiniteComponent({ singlePhoto }) {
+    const currentLink = useLocation().pathname.split("/")[1]
 
-    const currentLink = useLocation().pathname
+    const [photoClicked, setPhotoClicked] = useState(false)
 
-    const [photoClicked, setPhotoDetails] = useState(false)
-
-    function photoDetails() {
-        setPhotoDetails(true)
+    function photoDetails(e: { preventDefault: () => void, stopPropagation: () => void }) {
+        e.preventDefault()
+        setPhotoClicked(true)
+        e.stopPropagation()
     }
 
     return (
           <Link
             // to simulate the url change
-            to={`${currentLink}/${singlePhoto.slug}`}
+            to={`/${currentLink}/${singlePhoto.user.name}`}
             className="infiniteImage__container"
             // to open a modal about the image
             onClick={photoDetails}
@@ -34,6 +35,8 @@ export default function InfiniteComponent({ singlePhoto }) {
                 </div>
                 {photoClicked ? (
                 <ActiveCard
+                photoClicked={photoClicked}
+                setPhotoClicked={setPhotoClicked}
                 name={singlePhoto.user.name}
                 image={singlePhoto.urls.small}
                 bio={singlePhoto.user.bio}
@@ -42,7 +45,7 @@ export default function InfiniteComponent({ singlePhoto }) {
                 tags={singlePhoto.topic_submissions}
                 thumbnail={singlePhoto.user.profile_image.small}
                 />
-            ) : null}
+            ) : ""}
                
             </Link>
     )
