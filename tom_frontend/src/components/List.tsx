@@ -9,7 +9,7 @@ import InfiniteComponent from "./InfiniteComponent"
 
 export default function List() {
 
-    const [photos, setPhotos] = useState([])
+    const [photos, setPhotos] = useState<any[]>([])
     const [query, setQuery] = useState("")
     const [page, setPage] = useState(1)
     const [hasMore, _] = useState(true)
@@ -24,7 +24,7 @@ export default function List() {
         // api docs insist including the headers even if unused
         axios.get(unsplashUrl, {
             headers: {}
-        }).then((photo: unknown) => {
+        }).then((photo: any) => {
             setPhotos((arg: any): any[] | any => [...arg, ...photo.data.results])
             return
         }).catch((error) => {

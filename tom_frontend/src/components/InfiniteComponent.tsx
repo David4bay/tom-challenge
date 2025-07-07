@@ -1,9 +1,31 @@
- /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react"
 import ActiveCard from "./Card/ActiveCard"
 import { Link, useLocation } from "react-router-dom"
 
-export default function InfiniteComponent({ singlePhoto }: any) {
+export interface UnsplashPhoto {
+  id: string;
+  alt_description: string;
+  description: string;
+  urls: {
+    small: string;
+    regular: string;
+    full: string;
+    raw: string;
+  };
+  user: {
+    name: string;
+    bio: string | null | undefined | any;
+    profile_image: {
+      small: string;
+      medium: string;
+      large: string;
+    };
+  };
+  topic_submissions: Record<string, any> | string[] | string;
+}
+
+export default function InfiniteComponent({ singlePhoto }: { singlePhoto: UnsplashPhoto}) {
 
     const currentLink = useLocation().pathname.split("/")[1]
 
