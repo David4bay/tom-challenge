@@ -1,5 +1,5 @@
 require("dotenv").config()
-const { Sequelize, QueryTypes } = require("sequelize")
+const { Sequelize } = require("sequelize")
 
 const POSTGRES_KEY = encodeURIComponent(process.env.POSTGRES_PASS!)
 
@@ -20,7 +20,7 @@ const POSTGRES_DB = async () => {
     return null
 }
 
-module.exports = {
+export default {
     POSTGRES_DB, sequelize
 }
 

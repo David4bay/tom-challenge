@@ -6,6 +6,7 @@ import axios from "axios"
 import React, { useEffect, useState } from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
 import InfiniteComponent from "./InfiniteComponent"
+import Footer from "./Footer"
 
 export default function List() {
 
@@ -66,11 +67,13 @@ export default function List() {
     return (
         <section>
             <article className="searchForm__container">
+                <label htmlFor="searchBar">Infinite Image Scroll</label>
                 <input 
                 type="text"
                 onKeyDown={(e) => searchImages(e)} 
                 onChange={(e) => setQuery(e.target.value)}
                 className="searchForm__input"
+                id="searchBar"
                 />
                 <button
                 className="searchButton"
@@ -88,9 +91,7 @@ export default function List() {
                 hasMore={hasMore} 
                 loader={<p className="infinite__loader"></p>}
                 endMessage={
-                    <p>
-                        End...
-                    </p>
+                    <Footer />
                 }
                 >
                     <div className="infinite__wrapper">

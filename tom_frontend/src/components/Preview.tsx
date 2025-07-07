@@ -1,7 +1,6 @@
 
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthProvider/AuthProvider";
-import Footer from "./Footer";
 import List from "./List";
 import Nav from "./Nav";
 import { useEffect } from "react";
@@ -22,7 +21,6 @@ export default function Preview() {
     <>
     <Nav />
     <List />
-    <Footer />
     </>
     )
 }

@@ -1,9 +1,9 @@
-import { DataTypes, Model } from "sequelize"
+import { DataTypes, Model } from "sequelize";
 const { sequelize } = require("../storage/storage")
 
-class Like extends Model {}
+class Token extends Model {}
 
-Like.init({
+Token.init({
     id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -12,16 +12,13 @@ Like.init({
     userId: {
         type: DataTypes.UUID,
         allowNull: false,
-        references: {
-            model: "users",
-            key: "id"
-        }
+        references: { model: "users", key: "id"}
     }
 }, {
     sequelize,
-    modelName: "Like",
-    tableName: "likes",
-    timestamps: true
+    timestamps: true,
+    modelName: "token",
+    tableName: "tokens"
 })
 
-export default Like
+export default Token
