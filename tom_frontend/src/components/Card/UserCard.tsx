@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import { useAuth } from "../AuthProvider/AuthProvider"
 
 interface User {
