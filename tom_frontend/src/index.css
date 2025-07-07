@@ -70,7 +70,7 @@ body {
   width: 100%;
   font-family: "Noto Sans", sans-serif;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 nav {
@@ -450,6 +450,7 @@ footer {
   align-items: center;
   width: 100%;
   height: 100%;
+  /* overflow: hidden; */
 }
 
 .activeCard__background {
@@ -544,7 +545,7 @@ footer {
 
 .activeCardDetails__container {
   /* reminder to get back to this */
-  overflow: auto; 
+  overflow: scroll; 
   min-height: 100%;
   height: 100%;
 }

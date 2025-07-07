@@ -15,20 +15,28 @@ export default function List() {
     const [page, setPage] = useState(1)
     const [hasMore, _] = useState(true)
     const [input, setInput] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [hasError, setHasError] = useState(false)
 
     const CLIENT_ID = import.meta.env.VITE_UNSPLASH_CLIENTID 
     const unsplashUrl = `https://api.unsplash.com/search/photos?client_id=${CLIENT_ID}&query=${query}&page=${page}`
 
     function fetchImages() {
         // prevent unnecessary requests when no query and page scrolledf
+        setHasError(false)
+        setLoading(true)
         if (query.length < 1) return
         // api docs insist including the headers even if unused
         axios.get(unsplashUrl, {
             headers: {}
         }).then((photo: any) => {
             setPhotos((arg: any): any[] | any => [...arg, ...photo.data.results])
+            setLoading(false)
+            setHasError(false)
             return
         }).catch((error) => {
+            setLoading(false)
+            setHasError(true)
             console.log(error)
         })
         setPage(page + 1)
@@ -80,7 +88,7 @@ export default function List() {
                 id="enterKey"
                 onClick={triggerSearch}
                 >
-                    Search
+                    {hasError && !loading ? "Error" : !hasError && loading ? "loading..." : "Search"}
                 </button>
 
             </article>
