@@ -63,15 +63,16 @@ export default function List() {
         setInput(false)
     }, [fetchImages])
 
-
     return (
         <section>
             <article className="searchForm__container">
+                <h2 className="searchForm__title">Infinite Gallery Search</h2>
                 <input 
                 type="text"
                 onKeyDown={(e) => searchImages(e)} 
                 onChange={(e) => setQuery(e.target.value)}
                 className="searchForm__input"
+                placeholder="Search for you favorite images"
                 />
                 <button
                 className="searchButton"

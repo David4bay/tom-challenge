@@ -406,6 +406,10 @@ footer {
   width: 100%;
 }
 
+.searchForm__title {
+  margin-bottom: var(--md-space);
+}
+
 .searchForm__input {
   display: flex;
   width: 60%;
