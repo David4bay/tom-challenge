@@ -43,6 +43,10 @@ playing with these colors
   box-sizing: border-box;
 }
 
+html::-webkit-scrollbar {
+  display: none;
+}
+
 ::-webkit-scrollbar {
   width: calc(var(--sm-space) + 2px);
 }
@@ -64,7 +68,12 @@ body {
   width: 100%;
   font-family: "Noto Sans", sans-serif;
   scroll-behavior: smooth;
-  overflow: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 nav {
@@ -368,6 +377,7 @@ footer {
   justify-content: center;
   align-items: center;
   width: 100%;
+  overflow-y: scroll;
 }
 
 .searchForm__title {

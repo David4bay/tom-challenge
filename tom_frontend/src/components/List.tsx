@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 
@@ -41,6 +42,16 @@ export default function List() {
         })
         setPage(page + 1)
     }
+
+    useEffect(() => {
+        let timeout: string | number | NodeJS.Timeout | undefined
+        if (hasError) {
+            timeout = setTimeout(() => {
+                setHasError(false)
+            }, 1000)
+        }
+        () => timeout ? clearTimeout(timeout) : null
+    }, [hasError, setHasError])
 
     function triggerSearch() {
         if (query.length < 1) {
