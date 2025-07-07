@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthProvider/AuthProvider";
 import Nav from "./Nav";
 import List from "./List";
-import Footer from "./Footer";
 import { useEffect } from "react";
 import UserCard from "./Card/UserCard";
 
@@ -26,7 +25,6 @@ export default function Gallery() {
         <Nav />
         <UserCard />
         <List />
-        <Footer />
         </>
     )
 }

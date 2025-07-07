@@ -6,6 +6,7 @@ import axios from "axios"
 import React, { useEffect, useState } from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
 import InfiniteComponent from "./InfiniteComponent"
+import Footer from "./Footer"
 
 export default function List() {
 
@@ -88,9 +89,8 @@ export default function List() {
                 hasMore={hasMore} 
                 loader={<p className="infinite__loader"></p>}
                 endMessage={
-                    <p>
-                        End...
-                    </p>
+                    // smarter to let react-infinite-scroll component handle the footer
+                    <Footer />
                 }
                 >
                     <div className="infinite__wrapper">
