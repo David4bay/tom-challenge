@@ -67,6 +67,7 @@ playing with these colors
 
 body {
   min-height: 100vh;
+  width: 100%;
   font-family: "Noto Sans", sans-serif;
   scroll-behavior: smooth;
   overflow-x: hidden;
