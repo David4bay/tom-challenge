@@ -96,7 +96,7 @@ export default function List() {
                 dataLength={photos.length}
                 next={fetchImages} 
                 hasMore={hasMore} 
-                loader={<p className="infinite__loader"></p>}
+                loader={<div>Loading...</div>}
                 endMessage={
                     // smarter to let react-infinite-scroll component handle the footer
                     <Footer />
