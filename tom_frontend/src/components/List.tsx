@@ -10,7 +10,7 @@ import InfiniteComponent from "./InfiniteComponent"
 import Footer from "./Footer"
 
 export default function List() {
-
+   
     const [photos, setPhotos] = useState<any[]>([])
     const [query, setQuery] = useState("")
     const [page, setPage] = useState(1)
