@@ -85,12 +85,14 @@ export default function List() {
     return (
         <section>
             <article className="searchForm__container">
+                <label htmlFor="searchBar">Infinite Image Scroll</label>
                 <h2 className="searchForm__title">Infinite Gallery Search</h2>
                 <input 
                 type="text"
                 onKeyDown={(e) => searchImages(e)} 
                 onChange={(e) => setQuery(e.target.value)}
                 className="searchForm__input"
+                id="searchBar"
                 placeholder="Search for you favorite images"
                 />
                 <button

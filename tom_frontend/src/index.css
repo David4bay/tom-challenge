@@ -339,6 +339,7 @@ footer {
   max-width: 25%;
   padding: 0 4px;
   position: relative;
+  
   height: 500px;
   margin-bottom: calc(var(--sm-space) + 2px);
   overflow: hidden;
