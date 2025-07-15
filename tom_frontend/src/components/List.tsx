@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 
@@ -9,30 +10,48 @@ import InfiniteComponent from "./InfiniteComponent"
 import Footer from "./Footer"
 
 export default function List() {
-
+   
     const [photos, setPhotos] = useState<any[]>([])
     const [query, setQuery] = useState("")
     const [page, setPage] = useState(1)
     const [hasMore, _] = useState(true)
     const [input, setInput] = useState(false)
+    const [loading, setLoading] = useState(false)
+    const [hasError, setHasError] = useState(false)
 
     const CLIENT_ID = import.meta.env.VITE_UNSPLASH_CLIENTID 
     const unsplashUrl = `https://api.unsplash.com/search/photos?client_id=${CLIENT_ID}&query=${query}&page=${page}`
 
     function fetchImages() {
         // prevent unnecessary requests when no query and page scrolledf
+        setHasError(false)
+        setLoading(true)
         if (query.length < 1) return
         // api docs insist including the headers even if unused
         axios.get(unsplashUrl, {
             headers: {}
         }).then((photo: any) => {
             setPhotos((arg: any): any[] | any => [...arg, ...photo.data.results])
+            setLoading(false)
+            setHasError(false)
             return
         }).catch((error) => {
+            setLoading(false)
+            setHasError(true)
             console.log(error)
         })
         setPage(page + 1)
     }
+
+    useEffect(() => {
+        let timeout: string | number | NodeJS.Timeout | undefined
+        if (hasError) {
+            timeout = setTimeout(() => {
+                setHasError(false)
+            }, 1000)
+        }
+        () => timeout ? clearTimeout(timeout) : null
+    }, [hasError, setHasError])
 
     function triggerSearch() {
         if (query.length < 1) {
@@ -63,17 +82,18 @@ export default function List() {
         setInput(false)
     }, [fetchImages])
 
-
     return (
         <section>
             <article className="searchForm__container">
                 <label htmlFor="searchBar">Infinite Image Scroll</label>
+                <h2 className="searchForm__title">Infinite Gallery Search</h2>
                 <input 
                 type="text"
                 onKeyDown={(e) => searchImages(e)} 
                 onChange={(e) => setQuery(e.target.value)}
                 className="searchForm__input"
                 id="searchBar"
+                placeholder="Search for you favorite images"
                 />
                 <button
                 className="searchButton"
@@ -81,7 +101,7 @@ export default function List() {
                 id="enterKey"
                 onClick={triggerSearch}
                 >
-                    Search
+                    {hasError && !loading ? "Error" : !hasError && loading ? "loading..." : "Search"}
                 </button>
 
             </article>
@@ -89,8 +109,9 @@ export default function List() {
                 dataLength={photos.length}
                 next={fetchImages} 
                 hasMore={hasMore} 
-                loader={<p className="infinite__loader"></p>}
+                loader={<div>Loading...</div>}
                 endMessage={
+                    // smarter to let react-infinite-scroll component handle the footer
                     <Footer />
                 }
                 >

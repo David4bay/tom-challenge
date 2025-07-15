@@ -40,6 +40,7 @@ export default function Header() {
                 <h1>
                     The Interactive Gallery   
                 </h1>
+                <p>Click on Preview to try it out</p>
             </div>
             <div className="header__content">
                 <div className="header__images">
